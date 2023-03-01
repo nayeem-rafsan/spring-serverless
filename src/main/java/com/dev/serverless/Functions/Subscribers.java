@@ -20,12 +20,16 @@ public class Subscribers {
         return subscriberService::findAll;
     }
     @Bean
-    public Consumer<String> create(){
+    public Consumer<Subscriber> create(){
         return subscriberService::create;
     }
     @Bean
     public Consumer<String> delete(){
         return subscriberService::delete;
+    }
+    @Bean
+    public Consumer<Subscriber> update(){
+        return subscriberService::update;
     }
 
 }

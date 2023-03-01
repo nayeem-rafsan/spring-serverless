@@ -15,11 +15,14 @@ public class SubscriberService {
     public List<Subscriber> findAll(){
         return subscriberList;
     }
-    public void create(String email){
-        subscriberList.add(new Subscriber(id.addAndGet(1),email));
+    public void create(Subscriber subscriber){
+        subscriberList.add(subscriber);
     }
     public void delete(String email){
         var target = subscriberList.stream().filter(subscriber -> subscriber.getEmail().equals(email)).findFirst().orElse(null);
         subscriberList.remove(target);
+    }
+    public void update(Subscriber subscriber){
+        subscriberList.set(subscriber.getId(), subscriber);
     }
 }
